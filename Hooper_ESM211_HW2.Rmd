@@ -4,7 +4,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 
 ### Load packages 
@@ -12,16 +12,21 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-```{r}
+<br>
 
+#### 1. Graph of *dN/dt* vs. *N*. 
 
-r = 0.05
-K = 2000
-P = 4
-a = 0.05
-h = 0.2
+```{r Question 1}
 
-f <- function(N) r*N*(1-N/K) - P*((a*N)/(1+a*h*N))  # Here is where you define the function
+### Set parameters: 
+
+r = 0.05 # intrinsic growth rate
+K = 2000 # carrying capacity 
+P = 4 # number of predators (hunters)
+a = 0.05 # per-prey attack rate
+h = 0.2 # handling time 
+
+f <- function(N) r*N*(1-N/K) - P*((a*N)/(1+a*h*N)) # Here is where you define the function
 
 ggplot(data.frame(N = 0:2025), aes(x = N)) +
   stat_function(fun = f, color = "purple") +
@@ -31,3 +36,81 @@ ggplot(data.frame(N = 0:2025), aes(x = N)) +
 
 ```
 
+#### 2. Equilibria 
+Based on this graph, there are three equilibria points. One at *N* = 0 (stable), *N* = ~ 490 (unstable), and *N* = 1500 (stable). 
+
+
+
+<br>
+
+
+
+#### 3. Equilibria at *N* = 0 
+- Is there an equilibria at N = 0 for all plausible parameter values?
+- For what values of hunter number (P), expressed in terms of the other paramters of the model, is the zero equilibrium locally stable? 
+- If your goal is to eliminate the invasive species, what does this tell you about how many hunters you need? 
+
+
+```{r Question 3}
+
+
+### Set parameters: 
+
+# f(N) = per-hunter harvest rate
+
+r = 0.05 # intrinsic growth rate
+K = 2000 # carrying capacity 
+P = 2 # number of predators (hunters)
+a = 0.05 # per-prey attack rate
+h = 0.2 # handling time 
+
+f <- function(N) r*N*(1-N/K) - P*((a*N)/(1+a*h*N)) # Here is where you define the function
+
+ggplot(data.frame(N = 0:1025), aes(x = N)) +
+  stat_function(fun = f, color = "purple") +
+  geom_hline(yintercept = 0) +
+  ylab("dN/dt") +
+  theme_classic()
+
+
+
+
+```
+a. Yes, there is an equilibrium at *N* = 0 for all plausible paramter values. Because our harvest rate is zero at *N* = 0, it is an equilibrium point. 
+b. When *P* > 1, the zero equilibrium point will be locally stable. 
+c. 
+
+
+<br>
+
+
+#### 4. Non-zero equilibria equation
+
+
+
+<br.
+
+
+
+#### 5. Intrinsic Growth Rate and Hunting Rate
+
+
+<br>
+
+
+
+#### 6. Equilibria with different *P* vaues
+
+
+<br>
+
+
+
+#### 7. Bistability
+
+
+<br>
+
+
+
+#### 8. Changing number of hunters
