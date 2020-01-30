@@ -1,12 +1,11 @@
 ---
 title: "Hooper_ESM211_HW2"
-author: "Tess Hooper"
-date: "1/30/2020"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 
 ### Load packages 
 
@@ -29,9 +28,6 @@ ggplot(data.frame(N = 0:2025), aes(x = N)) +
   geom_hline(yintercept = 0) +
   ylab("dN/dt") +
   theme_classic()
-
-
-
 
 ```
 
