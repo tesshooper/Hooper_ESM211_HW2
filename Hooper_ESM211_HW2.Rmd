@@ -1,33 +1,14 @@
 ---
 title: "Hooper_ESM211_HW2"
-author: "Tess Hooper"
-date: "1/30/2020"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r}
 
 
-r = 0.05
-K = 2000
-P = 4
-a = 0.05
-h = 0.2
+## Load Packages
 
-f <- function(N) r*N*(1-N/K) - P*((a*N)/(1+a*h*N))  # Here is where you define the function
-
-ggplot(data.frame(N = 0:2025), aes(x = N)) +
-  stat_function(fun = f, color = "purple") +
-  geom_hline(yintercept = 0) +
-  ylab("dN/dt") +
-  theme_classic()
-
-
-
-
+library(tidyselect)
 ```
 
